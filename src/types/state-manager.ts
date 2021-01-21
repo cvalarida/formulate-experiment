@@ -1,16 +1,17 @@
-/**
- * The interface for what passes as a state manager
- */
+import React from "react";
 
 // interface SubscribeOnChangeFunc {
 //   (oldState: any, newState: any): void;
 // }
 
+/**
+ * The interface for what defines a state manager
+ */
 export default interface StateManager {
   // Not sure how to say that it should have an optional defaultState
-  constructor: Function;
+  constructor?: Function;
   getState(path?: string): any;
   setState(path: string, value: any): void;
-  // Not sure if we'll actually want this yet
-  // subscribe(path: string, onChange: SubscribeOnChangeFunc): void;
+  render?(children: React.Component): React.Component;
+  connect(): React.Component;
 }
