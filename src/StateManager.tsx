@@ -11,9 +11,12 @@ export default class StateManager extends React.Component {
   props: Props;
 
   render() {
+    const hoc =
+      this.props.manager.render ||
+      ((children: React.Component): React.Component => children);
     return (
       <StateManagerContext.Provider value={this.props.manager}>
-        {this.props.children}
+        {hoc(this.props.children)}
       </StateManagerContext.Provider>
     );
   }
