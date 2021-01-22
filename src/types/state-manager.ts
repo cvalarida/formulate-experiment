@@ -13,5 +13,6 @@ export default interface StateManager {
   getState(path?: string): any;
   setState(path: string, value: any): void;
   render?(children: React.Component): React.Component;
-  connect(): React.Component;
+  // This type is inaccurate
+  connect(mapStateToProps: Function): Function;
 }
