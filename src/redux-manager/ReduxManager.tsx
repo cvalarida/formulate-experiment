@@ -12,7 +12,7 @@ class ReduxManager implements StateManager {
   store: Store;
 
   constructor() {
-    this.store = createStore(combineReducers({ form: formReducers }));
+    this.store = createStore(combineReducers({ formData: formReducers }));
   }
 
   // @ts-ignore
