@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import StateManager from "../src/StateManager";
 import ReduxManager from "../src/redux-manager/ReduxManager";
 import InputField from "../src/InputField";
-import StateViewer from "../src/state-viewer";
+import StateViewer from "../src/StateViewer";
 
 export default function Home() {
   return (
