@@ -22,7 +22,7 @@ class ReduxManager implements StateManager {
 
   getState = (path?: string): any => {
     const currentState = this.store.getState();
-    return get(currentState, path);
+    return path ? get(currentState, path) : currentState;
   };
 
   setState = (path: string, value: any): void => {
