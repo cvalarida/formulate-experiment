@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import StateManager from "../src/StateManager";
-import ReduxManager from "../src/redux-manager/ReduxManager";
+import ReduxManager from "../src/redux-manager";
 import InputField from "../src/InputField";
 import StateViewer from "../src/StateViewer";
 
