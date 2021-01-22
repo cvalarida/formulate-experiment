@@ -3,9 +3,13 @@ import StateManager from "./StateManagerContext";
 
 const StateViewer = () => {
   const sm = useContext(StateManager);
-  const data = JSON.stringify(sm.getState(), null, 2);
+  const mapStateToProps = state => ({ state });
 
-  return <code>{data}</code>;
+  const ConnectedStateViewer = sm.connect(mapStateToProps)(({ state }) => (
+    <code>{JSON.stringify(state, null, 2)}</code>
+  ));
+
+  return <ConnectedStateViewer />;
 };
 
 export default StateViewer;
