@@ -15,8 +15,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <StateManager manager={ReduxManager}>
-          <InputField name={"first-name"} />
-          <InputField name={"last-name"} />
+          <InputField name={"name.first"} />
+          <InputField name={"name.last"} />
           <StateViewer />
         </StateManager>
       </main>
