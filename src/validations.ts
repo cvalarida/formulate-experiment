@@ -26,13 +26,11 @@ export default runValidations;
  *             *
 \***************/
 
-// Need to polyfill this for IE
-const Absent = Symbol();
 export const isRequired: ValidationFunction = (formData, path) =>
-  [Absent, ""].includes(get(formData, path, Absent))
-    ? "This is required"
-    : null;
+  [undefined, ""].includes(get(formData, path)) ? "This is required" : null;
 
 // Next validation experiment:
 export const matches = (matchPath): ValidationFunction => (formData, path) =>
-  get(formData, path) !== get(formData, matchPath) ? "Must match" : null;
+  get(formData, path) !== get(formData, matchPath)
+    ? `Must match ${matchPath}`
+    : null;
