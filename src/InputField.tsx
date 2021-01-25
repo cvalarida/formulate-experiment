@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { get } from "lodash";
 
 import StateManager from "./StateManagerContext";
 import runValidations, { ValidationFunction, isRequired } from "./validations";
@@ -7,19 +8,18 @@ const mapStateToProps = (formData: object) => formData;
 
 const connectedComponent = ({
   formData,
-  fieldData,
   dataPath,
   label,
   setData,
   validations
 }: {
   formData: object;
-  fieldData: any;
   dataPath: string;
   label: string;
   setData(event: React.ChangeEvent<HTMLInputElement>): void;
   validations: Array<ValidationFunction>;
 }) => {
+  const fieldData = get(formData, dataPath);
   const [dirty, setDirty] = useState(false);
   let validationError = null;
 
