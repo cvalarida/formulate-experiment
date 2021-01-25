@@ -5,6 +5,8 @@ import ReduxManager from "../src/redux-manager";
 import InputField from "../src/InputField";
 import StateViewer from "../src/StateViewer";
 
+import { matches } from "../src/validations";
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -16,7 +18,12 @@ export default function Home() {
       <main className={styles.main}>
         <StateManager manager={ReduxManager}>
           <InputField label="First Name" data={"name.first"} required />
-          <InputField label="Last Name" data={"name.last"} required />
+          <InputField
+            label="Last Name"
+            data={"name.last"}
+            validations={[matches("name.first")]}
+            required
+          />
           <StateViewer />
         </StateManager>
       </main>
