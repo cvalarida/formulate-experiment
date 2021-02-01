@@ -36,6 +36,7 @@ export class InternalRouter extends React.Component implements RouterType {
   props: Props;
   private routes: Array<string> = [];
 
+  // TODO: Prolly should rename this and clean up the next and previous logic
   get currentPageIndex() {
     return this.routes.indexOf(window.location.pathname);
   }
