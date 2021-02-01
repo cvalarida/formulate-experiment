@@ -15,14 +15,14 @@ export class Page extends React.Component implements PageType {
     return (
       <RouteManagerContext.Consumer>
         {rm => {
-          const previousPage = rm.previousPage();
-          const nextPage = rm.nextPage();
+          const hasPrevious = rm.hasPrevious();
+          const hasNext = rm.hasNext();
           return (
             <>
               <h3>{title}</h3>
               {children}
-              {previousPage && <Link to={previousPage}>Back</Link>}
-              {nextPage && <Link to={nextPage}>Continue</Link>}
+              {hasPrevious && <button onClick={rm.previousPage}>Back</button>}
+              {hasNext && <button onClick={rm.nextPage}>Continue</button>}
             </>
           );
         }}

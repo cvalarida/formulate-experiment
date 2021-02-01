@@ -31,23 +31,6 @@ const pageTwo = (
   </>
 );
 
-const navigation = (
-  <ul>
-    <li>
-      <Link to="/">Home</Link>
-    </li>
-    <li>
-      <Link to="/personal-information/name">Name</Link>
-    </li>
-    <li>
-      <Link to="/personal-information/age">Age</Link>
-    </li>
-    <li>
-      <Link to="/whatever">Whatever</Link>
-    </li>
-  </ul>
-);
-
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -58,7 +41,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <StateManager manager={ReduxManager}>
-          <Router navigation={navigation}>
+          <Router>
             <Page exact path="/" title="Introduction">
               In the beginning...
             </Page>

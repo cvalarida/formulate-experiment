@@ -23,12 +23,14 @@ export interface ChapterType extends React.Component {
 // Not ideal, but it works
 export type Routable = PageType | ChapterType;
 
-export interface RouteManager {
+export interface RouteManagerType {
+  hasNext(): boolean;
+  hasPrevious(): boolean;
+
   // May rename these
-  nextPage(): string | null;
-  previousPage(): string | null;
-  // How?
-  // jumpTo(path: string): void;
+  nextPage(): void;
+  previousPage(): void;
+  jumpTo(path: string): void;
 
   addRoute(path: string): void;
   getAllRoutes(): Array<string>;
