@@ -6,6 +6,7 @@ import InputField from "../src/InputField";
 import StateViewer from "../src/StateViewer";
 
 import { Router, Page, Link, Chapter } from "../src/routing";
+import { Route } from "react-router-dom";
 
 import { matches } from "../src/validations";
 
@@ -44,6 +45,9 @@ const navigation = (
     <li>
       <Link to="/whatever">Whatever</Link>
     </li>
+    <li>
+      <Link to="/foo">Foo</Link>
+    </li>
   </ul>
 );
 
@@ -57,16 +61,16 @@ export default function Home() {
 
       <main className={styles.main}>
         <StateManager manager={ReduxManager}>
-          <Router>
-            {navigation}
-            <Page path="/" title="Introduction">
+          <Router navigation={navigation}>
+            <Route path="/foo">Ahhhhh!</Route>
+            <Page exact path="/" title="Introduction">
               In the beginning...
             </Page>
             <Chapter path="/personal-information" title="Personal information">
-              <Page route="/personal-information/name" title="Name">
+              <Page path="/name" title="Name">
                 {pageOne}
               </Page>
-              <Page route="/personal-information/age" title="Age">
+              <Page path="/age" title="Age">
                 {pageTwo}
               </Page>
             </Chapter>

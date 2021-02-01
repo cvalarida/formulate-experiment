@@ -1,10 +1,12 @@
 import React from "react";
-import { BrowserRouter, Switch } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { RouterType } from "./types";
+import { RouterType, PageType, ChapterType } from "./types";
+import { wrapChildrenInRoutes } from "./utilities";
 
 interface Props {
-  children: React.Component | Array<React.Component>;
+  children: Array<PageType | ChapterType>;
+  navigation: React.Component; // Only for temporary use in our experiment here
 }
 
 export class Router extends React.Component implements RouterType {
@@ -13,9 +15,11 @@ export class Router extends React.Component implements RouterType {
   // TODO: Construct a list of routes
 
   render() {
+    const routedChildren = wrapChildrenInRoutes(this.props.children);
     return (
       <BrowserRouter>
-        <Switch>{this.props.children}</Switch>
+        {this.props.navigation}
+        <Switch>{routedChildren}</Switch>
       </BrowserRouter>
     );
   }
