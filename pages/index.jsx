@@ -45,9 +45,6 @@ const navigation = (
     <li>
       <Link to="/whatever">Whatever</Link>
     </li>
-    <li>
-      <Link to="/foo">Foo</Link>
-    </li>
   </ul>
 );
 
@@ -62,7 +59,6 @@ export default function Home() {
       <main className={styles.main}>
         <StateManager manager={ReduxManager}>
           <Router navigation={navigation}>
-            <Route path="/foo">Ahhhhh!</Route>
             <Page exact path="/" title="Introduction">
               In the beginning...
             </Page>
